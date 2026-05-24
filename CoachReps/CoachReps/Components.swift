@@ -10,7 +10,7 @@ struct StreakBadge: View {
             Text("\(count)")
                 .font(.system(size: 14, weight: .semibold))
                 .foregroundColor(Theme.textPrimary)
-            Text(count == 1 ? "day" : "days")
+            Text(count == 1 ? "jour" : "jours")
                 .font(.system(size: 12))
                 .foregroundColor(Theme.textSecondary)
         }
@@ -68,7 +68,7 @@ struct DrillRow: View {
                         .font(.system(size: 15, weight: .medium))
                         .foregroundColor(Theme.textPrimary)
                     if doneToday {
-                        Text("DONE")
+                        Text("FAIT")
                             .font(.system(size: 9, weight: .bold))
                             .tracking(0.8)
                             .foregroundColor(Theme.success)
@@ -76,7 +76,7 @@ struct DrillRow: View {
                             .padding(.vertical, 2)
                             .background(Capsule().fill(Theme.success.opacity(0.12)))
                     } else if drill.isCustom {
-                        Text("CUSTOM")
+                        Text("PERSO")
                             .font(.system(size: 9, weight: .bold))
                             .tracking(0.8)
                             .foregroundColor(Theme.highlight)

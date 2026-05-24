@@ -14,9 +14,9 @@ struct Drill: Identifiable, Hashable {
 }
 
 enum DrillType: String, CaseIterable, Codable {
-    case redo = "Redo this moment"
-    case objection = "Daily objection"
-    case pattern = "Your patterns"
+    case redo = "Refais ce moment"
+    case objection = "Objection du jour"
+    case pattern = "Tes patterns"
 
     var icon: String {
         switch self {
@@ -28,7 +28,7 @@ enum DrillType: String, CaseIterable, Codable {
 
     var shortLabel: String {
         switch self {
-        case .redo: return "Redo"
+        case .redo: return "Refaire"
         case .objection: return "Objection"
         case .pattern: return "Pattern"
         }

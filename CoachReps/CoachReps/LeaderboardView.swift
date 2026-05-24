@@ -25,7 +25,7 @@ struct LeaderboardView: View {
             .buttonStyle(.plain)
             Spacer()
             VStack(spacing: 0) {
-                Text("Leaderboard")
+                Text("Classement")
                     .font(.system(size: 15, weight: .semibold))
                     .foregroundColor(Theme.textPrimary)
                 if !app.teamCode.isEmpty {
@@ -52,10 +52,10 @@ struct LeaderboardView: View {
                 Image(systemName: "person.3.fill")
                     .font(.system(size: 40))
                     .foregroundColor(Theme.textTertiary)
-                Text("Join a team")
+                Text("Rejoins une équipe")
                     .font(.system(size: 18, weight: .semibold))
                     .foregroundColor(Theme.textPrimary)
-                Text("Go to Settings → Team to enter a code\nand see your teammates here.")
+                Text("Va dans Réglages → Équipe pour entrer un code\net voir tes coéquipiers ici.")
                     .font(.system(size: 13))
                     .foregroundColor(Theme.textSecondary)
                     .multilineTextAlignment(.center)
@@ -65,11 +65,11 @@ struct LeaderboardView: View {
         } else if app.teamLeaderboard.isEmpty {
             VStack(spacing: 10) {
                 Spacer()
-                Text("No drills logged in team \(app.teamCode) yet")
+                Text("Aucun drill enregistré dans l'équipe \(app.teamCode)")
                     .font(.system(size: 14))
                     .foregroundColor(Theme.textSecondary)
                     .multilineTextAlignment(.center)
-                Text("Be the first to set a top score.")
+                Text("Sois le premier à poser un top score.")
                     .font(.system(size: 12))
                     .foregroundColor(Theme.textTertiary)
                 Spacer()
@@ -123,7 +123,7 @@ struct LeaderboardRow: View {
                         .font(.system(size: 14, weight: .semibold))
                         .foregroundColor(Theme.textPrimary)
                     if isYou {
-                        Text("YOU")
+                        Text("TOI")
                             .font(.system(size: 9, weight: .bold))
                             .tracking(0.8)
                             .foregroundColor(.white)
@@ -132,7 +132,7 @@ struct LeaderboardRow: View {
                             .background(Capsule().fill(Theme.accent))
                     }
                 }
-                Text("\(drills) drill\(drills == 1 ? "" : "s") · avg \(avgScore)")
+                Text("\(drills) drill\(drills == 1 ? "" : "s") · moy \(avgScore)")
                     .font(.system(size: 11))
                     .foregroundColor(Theme.textSecondary)
             }

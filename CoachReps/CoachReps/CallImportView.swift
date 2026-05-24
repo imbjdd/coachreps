@@ -45,7 +45,7 @@ struct CallImportView: View {
             }
             .buttonStyle(.plain)
             Spacer()
-            Text("Import a call")
+            Text("Importer un call")
                 .font(.system(size: 15, weight: .semibold))
                 .foregroundColor(Theme.textPrimary)
             Spacer()
@@ -81,11 +81,11 @@ struct CallImportView: View {
                     .foregroundColor(Theme.highlight)
             }
             VStack(spacing: 8) {
-                Text("Turn a real call into drills")
+                Text("Transforme un vrai call en drills")
                     .font(.system(size: 22, weight: .semibold))
                     .foregroundColor(Theme.textPrimary)
                     .multilineTextAlignment(.center)
-                Text("Pick an audio file (mp3, m4a, wav, max ~5 min).\nWe transcribe it on-device, then AI extracts 3-5 client moments worth drilling.")
+                Text("Choisis un fichier audio (mp3, m4a, wav, max ~5 min).\nOn transcrit en local, puis l'IA extrait 3-5 moments client à driller.")
                     .font(.system(size: 13))
                     .foregroundColor(Theme.textSecondary)
                     .multilineTextAlignment(.center)
@@ -95,11 +95,11 @@ struct CallImportView: View {
 
             Spacer()
 
-            PrimaryButton(title: "Choose audio file", icon: "doc.badge.arrow.up.fill") {
+            PrimaryButton(title: "Choisir un fichier audio", icon: "doc.badge.arrow.up.fill") {
                 showFilePicker = true
             }
             .padding(.horizontal, 20)
-            Text("Your audio stays on your device.")
+            Text("Ton audio reste sur ton appareil.")
                 .font(.system(size: 11))
                 .foregroundColor(Theme.textTertiary)
             Spacer().frame(height: 30)
@@ -129,9 +129,9 @@ struct CallImportView: View {
 
     private var stageLabel: String {
         switch stage {
-        case .transcribing: return "Transcribing..."
-        case .extracting: return "Extracting drills..."
-        case .saving: return "Saving..."
+        case .transcribing: return "Transcription..."
+        case .extracting: return "Extraction des drills..."
+        case .saving: return "Sauvegarde..."
         default: return ""
         }
     }
@@ -146,17 +146,17 @@ struct CallImportView: View {
                     .foregroundColor(.white)
             }
             VStack(spacing: 8) {
-                Text("\(createdCount) drill\(createdCount == 1 ? "" : "s") added")
+                Text("\(createdCount) drill\(createdCount == 1 ? "" : "s") ajouté\(createdCount == 1 ? "" : "s")")
                     .font(.system(size: 22, weight: .semibold))
                     .foregroundColor(Theme.textPrimary)
-                Text("Find them at the top of \"Browse all drills\" — tagged CUSTOM.")
+                Text("Tu les trouveras en haut de la Bibliothèque — taggés PERSO.")
                     .font(.system(size: 13))
                     .foregroundColor(Theme.textSecondary)
                     .multilineTextAlignment(.center)
             }
             .padding(.horizontal, 24)
             Spacer()
-            PrimaryButton(title: "Done", icon: "checkmark") {
+            PrimaryButton(title: "Terminer", icon: "checkmark") {
                 onClose()
             }
             .padding(.horizontal, 20)
@@ -171,10 +171,10 @@ struct CallImportView: View {
                 .font(.system(size: 40))
                 .foregroundColor(Theme.danger)
             VStack(spacing: 6) {
-                Text("Import failed")
+                Text("Import échoué")
                     .font(.system(size: 18, weight: .semibold))
                     .foregroundColor(Theme.textPrimary)
-                Text(errorMessage ?? "Unknown error")
+                Text(errorMessage ?? "Erreur inconnue")
                     .font(.system(size: 12))
                     .foregroundColor(Theme.textSecondary)
                     .multilineTextAlignment(.center)
@@ -182,8 +182,8 @@ struct CallImportView: View {
             .padding(.horizontal, 24)
             Spacer()
             HStack(spacing: 10) {
-                SecondaryButton(title: "Close", icon: "xmark") { onClose() }
-                PrimaryButton(title: "Try again", icon: "arrow.counterclockwise") {
+                SecondaryButton(title: "Fermer", icon: "xmark") { onClose() }
+                PrimaryButton(title: "Réessayer", icon: "arrow.counterclockwise") {
                     stage = .idle
                     errorMessage = nil
                 }
@@ -210,10 +210,10 @@ struct CallImportView: View {
 
                 await MainActor.run {
                     stage = .transcribing
-                    statusMessage = "On-device transcription (no upload)"
+                    statusMessage = "Transcription en local (pas d'upload)"
                 }
 
-                await MainActor.run { stage = .extracting; statusMessage = "Gemini reads the transcript" }
+                await MainActor.run { stage = .extracting; statusMessage = "Gemini lit le transcript" }
                 let count = try await app.ingestCall(audioURL: tmpURL)
 
                 try? FileManager.default.removeItem(at: tmpURL)
@@ -235,11 +235,11 @@ struct CallImportView: View {
         if let f = e as? FirestoreError {
             switch f {
             case .httpError(let code, let body):
-                if code == 429 { return "Gemini quota hit. Retry in 1 min." }
-                return "Error \(code): \(body.prefix(120))"
-            case .decodingError(let m): return "Couldn't parse transcript: \(m.prefix(80))"
-            case .invalidURL: return "Invalid URL."
-            case .noData: return "No server response."
+                if code == 429 { return "Quota Gemini atteint. Réessaie dans 1 min." }
+                return "Erreur \(code) : \(body.prefix(120))"
+            case .decodingError(let m): return "Transcript illisible : \(m.prefix(80))"
+            case .invalidURL: return "URL invalide."
+            case .noData: return "Pas de réponse du serveur."
             }
         }
         return e.localizedDescription

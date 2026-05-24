@@ -204,7 +204,7 @@ final class VoicePlayer: NSObject, ObservableObject {
         synth.delegate = self
     }
 
-    func speak(_ text: String, language: String = "en-US") {
+    func speak(_ text: String, language: String = "fr-FR") {
         if synth.isSpeaking {
             synth.stopSpeaking(at: .immediate)
             isSpeaking = false
@@ -215,7 +215,7 @@ final class VoicePlayer: NSObject, ObservableObject {
             try AVAudioSession.sharedInstance().setActive(true)
         } catch {}
         let utterance = AVSpeechUtterance(string: text)
-        utterance.voice = AVSpeechSynthesisVoice(language: language) ?? AVSpeechSynthesisVoice(language: "en-GB")
+        utterance.voice = AVSpeechSynthesisVoice(language: language) ?? AVSpeechSynthesisVoice(language: "fr-CA")
         utterance.rate = 0.5
         utterance.pitchMultiplier = 1.0
         utterance.volume = 1.0

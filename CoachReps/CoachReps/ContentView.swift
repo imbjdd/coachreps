@@ -123,9 +123,9 @@ struct ContentView: View {
 
     private var tabBar: some View {
         HStack(spacing: 4) {
-            tabButton(.home, icon: "house.fill", label: "Home")
-            tabButton(.library, icon: "books.vertical.fill", label: "Library")
-            tabButton(.profile, icon: "person.fill", label: "Profile")
+            tabButton(.home, icon: "house.fill", label: "Accueil")
+            tabButton(.library, icon: "books.vertical.fill", label: "Drills")
+            tabButton(.profile, icon: "person.fill", label: "Profil")
         }
         .padding(5)
         .background(

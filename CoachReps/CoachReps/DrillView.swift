@@ -89,7 +89,7 @@ struct DrillView: View {
                 .font(.system(size: 10, weight: .semibold))
                 .tracking(1.2)
                 .foregroundColor(Theme.textTertiary)
-            Text("The client says")
+            Text("Le client dit")
                 .font(.system(size: 13))
                 .foregroundColor(Theme.textSecondary)
             Text("\u{201C}\(drill.clientLine)\u{201D}")
@@ -107,7 +107,7 @@ struct DrillView: View {
                 WaveformView(active: voice.isSpeaking, color: voice.isSpeaking ? Theme.accent : Theme.textTertiary)
                     .frame(height: 64)
                 HStack {
-                    Text(voice.isSpeaking ? "Playing..." : "Original clip")
+                    Text(voice.isSpeaking ? "Lecture..." : "Extrait original")
                         .font(.system(size: 12))
                         .foregroundColor(Theme.textSecondary)
                     Spacer()
@@ -118,7 +118,7 @@ struct DrillView: View {
             }
             .cardStyle()
 
-            PrimaryButton(title: voice.isSpeaking ? "Stop" : "Listen to the clip", icon: voice.isSpeaking ? "stop.fill" : "play.fill") {
+            PrimaryButton(title: voice.isSpeaking ? "Stop" : "Écouter l'extrait", icon: voice.isSpeaking ? "stop.fill" : "play.fill") {
                 voice.speak(drill.clientLine)
             }
 
@@ -127,7 +127,7 @@ struct DrillView: View {
                 phase = .record
             } label: {
                 HStack(spacing: 6) {
-                    Text("Skip to recording")
+                    Text("Passer à l'enregistrement")
                     Image(systemName: "arrow.right")
                 }
                 .font(.system(size: 13, weight: .medium))
@@ -140,10 +140,10 @@ struct DrillView: View {
     private var recordSection: some View {
         VStack(spacing: 28) {
             VStack(spacing: 6) {
-                Text("Your turn")
+                Text("À toi")
                     .font(.system(size: 18, weight: .semibold))
                     .foregroundColor(Theme.textPrimary)
-                Text("30 seconds max")
+                Text("30 secondes max")
                     .font(.system(size: 13))
                     .foregroundColor(Theme.textSecondary)
             }
@@ -181,14 +181,14 @@ struct DrillView: View {
             .buttonStyle(.plain)
 
             if recorder.elapsed > 0 && !recorder.isRecording {
-                PrimaryButton(title: "Review my take", icon: "play.fill") {
+                PrimaryButton(title: "Écouter ma prise", icon: "play.fill") {
                     if let url = recorder.lastRecordingURL {
                         playback.load(url: url)
                     }
                     phase = .preview
                 }
             } else {
-                Text(recorder.isRecording ? "Tap to stop" : "Tap to record")
+                Text(recorder.isRecording ? "Touche pour arrêter" : "Touche pour enregistrer")
                     .font(.system(size: 13))
                     .foregroundColor(Theme.textTertiary)
             }
@@ -198,10 +198,10 @@ struct DrillView: View {
     private var previewSection: some View {
         VStack(spacing: 22) {
             VStack(spacing: 6) {
-                Text("Listen to your take")
+                Text("Écoute ta prise")
                     .font(.system(size: 17, weight: .semibold))
                     .foregroundColor(Theme.textPrimary)
-                Text("Re-record if needed before sending to AI")
+                Text("Refais si besoin avant d'envoyer à l'IA")
                     .font(.system(size: 12))
                     .foregroundColor(Theme.textSecondary)
             }
@@ -248,11 +248,11 @@ struct DrillView: View {
             .background(RoundedRectangle(cornerRadius: 18).fill(Theme.surfaceMuted))
 
             VStack(spacing: 10) {
-                PrimaryButton(title: "Send for analysis", icon: "sparkles") {
+                PrimaryButton(title: "Envoyer à l'analyse", icon: "sparkles") {
                     playback.stop()
                     analyze()
                 }
-                SecondaryButton(title: "Re-record", icon: "arrow.counterclockwise") {
+                SecondaryButton(title: "Réenregistrer", icon: "arrow.counterclockwise") {
                     playback.stop()
                     recorder.cancel()
                     phase = .record
@@ -274,10 +274,10 @@ struct DrillView: View {
                 ProgressView().tint(Theme.accent).scaleEffect(1.2)
             }
             VStack(spacing: 6) {
-                Text("Analyzing")
+                Text("Analyse en cours")
                     .font(.system(size: 17, weight: .semibold))
                     .foregroundColor(Theme.textPrimary)
-                Text("Transcription + AI scoring")
+                Text("Transcription + scoring IA")
                     .font(.system(size: 13))
                     .foregroundColor(Theme.textSecondary)
             }
@@ -287,7 +287,7 @@ struct DrillView: View {
                         .font(.system(size: 13))
                         .foregroundColor(Theme.danger)
                         .multilineTextAlignment(.center)
-                    Button("Retry") { analyze() }
+                    Button("Réessayer") { analyze() }
                         .font(.system(size: 14, weight: .semibold))
                 }
                 .padding(.top, 8)
@@ -315,7 +315,7 @@ struct DrillView: View {
                         HStack(spacing: 6) {
                             Image(systemName: "snowflake")
                                 .font(.system(size: 11, weight: .bold))
-                            Text("Streak freeze used — you missed a day but kept the streak")
+                            Text("Streak freeze utilisé — tu as loupé un jour mais gardé ta série")
                                 .font(.system(size: 12, weight: .medium))
                         }
                         .foregroundColor(Color(red: 0.20, green: 0.55, blue: 0.80))
@@ -337,25 +337,25 @@ struct DrillView: View {
 
                 let topRef = app.topPerformer(forDrillId: drill.id)
                 let useTeam = topRef != nil
-                comparisonRow(metric: "Pace",
+                comparisonRow(metric: "Débit",
                               you: "\(s.wpm) wpm",
                               target: useTeam ? "\(topRef!.wpm) wpm" : "\(a.benchmark.wpm) wpm",
-                              targetLabel: useTeam ? topRef!.userName : "Target",
+                              targetLabel: useTeam ? topRef!.userName : "Cible",
                               good: abs(s.wpm - (useTeam ? topRef!.wpm : a.benchmark.wpm)) <= 15)
-                comparisonRow(metric: "Filler words",
+                comparisonRow(metric: "Mots fillers",
                               you: "\(s.fillerCount)",
                               target: useTeam ? "\(topRef!.fillerCount)" : "≤ \(a.benchmark.fillerMax)",
-                              targetLabel: useTeam ? topRef!.userName : "Target",
+                              targetLabel: useTeam ? topRef!.userName : "Cible",
                               good: useTeam ? s.fillerCount <= topRef!.fillerCount : s.fillerCount <= a.benchmark.fillerMax)
-                comparisonRow(metric: "Pauses detected",
+                comparisonRow(metric: "Pauses détectées",
                               you: "\(s.pauseCount)",
-                              target: useTeam ? "\(topRef!.pauseCount)" : "≥ 1 strategic",
-                              targetLabel: useTeam ? topRef!.userName : "Target",
+                              target: useTeam ? "\(topRef!.pauseCount)" : "≥ 1 stratégique",
+                              targetLabel: useTeam ? topRef!.userName : "Cible",
                               good: useTeam ? s.pauseCount >= topRef!.pauseCount : s.pauseCount >= 1)
-                comparisonRow(metric: "Pitch variation",
+                comparisonRow(metric: "Variation tonale",
                               you: String(format: "%.1f", s.pitchVariation),
                               target: useTeam ? String(format: "%.1f", topRef!.pitchVariation) : String(format: "≥ %.1f", a.benchmark.pitchVariationMin),
-                              targetLabel: useTeam ? topRef!.userName : "Target",
+                              targetLabel: useTeam ? topRef!.userName : "Cible",
                               good: useTeam ? s.pitchVariation >= topRef!.pitchVariation : s.pitchVariation >= a.benchmark.pitchVariationMin)
 
                 analysisCard(a)
@@ -363,13 +363,13 @@ struct DrillView: View {
                 if !s.transcript.isEmpty { transcriptCard(s.transcript) }
 
                 HStack(spacing: 10) {
-                    SecondaryButton(title: "Redo", icon: "arrow.counterclockwise") {
+                    SecondaryButton(title: "Refaire", icon: "arrow.counterclockwise") {
                         recorder.cancel()
                         analysis = nil
                         session = nil
                         phase = .record
                     }
-                    PrimaryButton(title: "Done", icon: "checkmark") {
+                    PrimaryButton(title: "Terminer", icon: "checkmark") {
                         onClose()
                     }
                 }
@@ -380,7 +380,7 @@ struct DrillView: View {
 
     private func analysisCard(_ a: CoachingAnalysis) -> some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("ANALYSIS")
+            Text("ANALYSE")
                 .font(.system(size: 10, weight: .semibold))
                 .tracking(1.2)
                 .foregroundColor(Theme.textTertiary)
@@ -390,7 +390,7 @@ struct DrillView: View {
                 .lineSpacing(3)
             if !a.strengths.isEmpty {
                 Divider().padding(.vertical, 4)
-                Text("STRENGTHS")
+                Text("POINTS FORTS")
                     .font(.system(size: 10, weight: .semibold))
                     .tracking(1.2)
                     .foregroundColor(Theme.textTertiary)
@@ -414,7 +414,7 @@ struct DrillView: View {
 
     private func improvementsCard(_ a: CoachingAnalysis) -> some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text("TO FIX")
+            Text("À CORRIGER")
                 .font(.system(size: 10, weight: .semibold))
                 .tracking(1.2)
                 .foregroundColor(Theme.textTertiary)
@@ -440,7 +440,7 @@ struct DrillView: View {
 
     private func transcriptCard(_ t: String) -> some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("WHAT YOU SAID")
+            Text("CE QUE TU AS DIT")
                 .font(.system(size: 10, weight: .semibold))
                 .tracking(1.2)
                 .foregroundColor(Theme.textTertiary)
@@ -462,7 +462,7 @@ struct DrillView: View {
                 .foregroundColor(Theme.textSecondary)
             HStack(spacing: 0) {
                 VStack(alignment: .leading, spacing: 3) {
-                    Text("You")
+                    Text("Toi")
                         .font(.system(size: 10, weight: .medium))
                         .tracking(0.5)
                         .foregroundColor(Theme.textTertiary)
@@ -495,9 +495,9 @@ struct DrillView: View {
     private func topPerformerCard(top: TeamSession, you: DrillSession) -> some View {
         let delta = you.score - top.score
         let lead: String = {
-            if delta > 0 { return "You beat \(top.userName) by \(delta) pts." }
-            if delta == 0 { return "Tied with \(top.userName)." }
-            return "\(top.userName) leads you by \(-delta) pts on this drill."
+            if delta > 0 { return "Tu bats \(top.userName) de \(delta) pts." }
+            if delta == 0 { return "Égalité avec \(top.userName)." }
+            return "\(top.userName) te devance de \(-delta) pts sur ce drill."
         }()
         return HStack(spacing: 12) {
             ZStack {
@@ -529,7 +529,7 @@ struct DrillView: View {
 
     private func analyze() {
         guard let audioURL = recorder.lastRecordingURL else {
-            analyzeError = "No audio recorded."
+            analyzeError = "Aucun audio enregistré."
             return
         }
         analyzeError = nil
@@ -563,14 +563,14 @@ struct DrillView: View {
         if let f = e as? FirestoreError {
             switch f {
             case .httpError(let code, let body):
-                if code == 429 { return "Gemini quota hit. Retry in 1 min." }
-                return "Error \(code): \(body.prefix(120))"
-            case .invalidURL: return "Invalid URL."
-            case .decodingError(let m): return "Bad AI response: \(m.prefix(80))"
-            case .noData: return "No server response."
+                if code == 429 { return "Quota Gemini atteint. Réessaie dans 1 min." }
+                return "Erreur \(code) : \(body.prefix(120))"
+            case .invalidURL: return "URL invalide."
+            case .decodingError(let m): return "Réponse IA invalide : \(m.prefix(80))"
+            case .noData: return "Pas de réponse du serveur."
             }
         }
-        return "Error: \(e.localizedDescription)"
+        return "Erreur : \(e.localizedDescription)"
     }
 
     private func formatTime(_ t: TimeInterval) -> String {

@@ -52,9 +52,9 @@ struct HomeView: View {
     private var greeting: String {
         let h = Calendar.current.component(.hour, from: Date())
         switch h {
-        case 5..<12: return "Good morning"
-        case 12..<18: return "Good afternoon"
-        default: return "Good evening"
+        case 5..<12: return "Bonjour"
+        case 12..<18: return "Bon après-midi"
+        default: return "Bonsoir"
         }
     }
 
@@ -69,7 +69,7 @@ struct HomeView: View {
             }
             VStack(alignment: .leading, spacing: 4) {
                 HStack {
-                    Text("Level \(p.level)")
+                    Text("Niveau \(p.level)")
                         .font(.system(size: 12, weight: .semibold))
                         .foregroundColor(Theme.textPrimary)
                     Spacer()
@@ -97,7 +97,7 @@ struct HomeView: View {
     private var loadingPlaceholder: some View {
         VStack(spacing: 8) {
             ProgressView().tint(Theme.textSecondary)
-            Text("Loading drills...")
+            Text("Chargement des drills...")
                 .font(.system(size: 12))
                 .foregroundColor(Theme.textSecondary)
         }
@@ -107,13 +107,13 @@ struct HomeView: View {
 
     private func errorBox(_ msg: String) -> some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("Connection failed")
+            Text("Connexion impossible")
                 .font(.system(size: 14, weight: .semibold))
                 .foregroundColor(Theme.textPrimary)
             Text(msg)
                 .font(.system(size: 12))
                 .foregroundColor(Theme.textSecondary)
-            Button("Retry") {
+            Button("Réessayer") {
                 Task { await app.bootstrap() }
             }
             .font(.system(size: 13, weight: .semibold))
@@ -127,7 +127,7 @@ struct HomeView: View {
         Button { onOpenDrill(drill) } label: {
             VStack(alignment: .leading, spacing: 18) {
                 HStack {
-                    Text("TODAY'S DRILL")
+                    Text("DRILL DU JOUR")
                         .font(.system(size: 10, weight: .bold))
                         .tracking(1.4)
                         .foregroundColor(Theme.highlight)
@@ -142,7 +142,7 @@ struct HomeView: View {
                 }
 
                 VStack(alignment: .leading, spacing: 6) {
-                    Text("The client says")
+                    Text("Le client dit")
                         .font(.system(size: 12))
                         .foregroundColor(Theme.textSecondary)
                     Text("\u{201C}\(drill.clientLine)\u{201D}")
@@ -168,7 +168,7 @@ struct HomeView: View {
                     Spacer()
 
                     HStack(spacing: 6) {
-                        Text("Start")
+                        Text("Commencer")
                         Image(systemName: "arrow.right")
                     }
                     .font(.system(size: 14, weight: .semibold))
@@ -196,7 +196,7 @@ struct HomeView: View {
                     .foregroundColor(.white)
             }
             VStack(alignment: .leading, spacing: 3) {
-                Text("Daily drill done")
+                Text("Drill du jour terminé")
                     .font(.system(size: 16, weight: .semibold))
                     .foregroundColor(Theme.textPrimary)
                 Text(streakLine)
@@ -213,21 +213,21 @@ struct HomeView: View {
 
     private var streakLine: String {
         let s = app.stats.streak
-        if s == 0 { return "Nice work. Keep building momentum." }
-        if s == 1 { return "1-day streak started. Don't break it." }
-        return "\(s)-day streak. Don't break it."
+        if s == 0 { return "Bien joué. Continue à construire ton momentum." }
+        if s == 1 { return "1 jour de streak lancé. Ne le casse pas." }
+        return "\(s) jours de streak. Ne casse pas la série."
     }
 
     private func bonusDrillRow(_ drill: Drill) -> some View {
         Button { onOpenDrill(drill) } label: {
             VStack(alignment: .leading, spacing: 12) {
                 HStack {
-                    Text("BONUS DRILL")
+                    Text("DRILL BONUS")
                         .font(.system(size: 10, weight: .bold))
                         .tracking(1.2)
                         .foregroundColor(Theme.textTertiary)
                     Spacer()
-                    Text("+ extra XP")
+                    Text("+ XP supplémentaire")
                         .font(.system(size: 11, weight: .semibold))
                         .foregroundColor(Theme.accent)
                 }
@@ -251,7 +251,7 @@ struct HomeView: View {
                     .background(Capsule().fill(Theme.surfaceMuted))
                     Spacer()
                     HStack(spacing: 5) {
-                        Text("Train more")
+                        Text("Continuer")
                         Image(systemName: "arrow.right")
                     }
                     .font(.system(size: 13, weight: .semibold))
@@ -268,7 +268,7 @@ struct HomeView: View {
 
     private var statsRow: some View {
         HStack(spacing: 8) {
-            MiniStat(label: "Avg pace", value: app.weeklyWPM.map { "\($0)" } ?? "–", unit: "wpm")
+            MiniStat(label: "Débit moy.", value: app.weeklyWPM.map { "\($0)" } ?? "–", unit: "wpm")
             MiniStat(label: "Drills", value: "\(app.stats.drillsCompleted)", unit: "total")
             MiniStat(label: "Total XP", value: "\(app.stats.totalXP)", unit: "pts")
         }

@@ -20,7 +20,7 @@ final class SpeechTranscriber {
         }
     }
 
-    func transcribe(url: URL, locale: Locale = Locale(identifier: "en-US"), onDevice: Bool = false) async throws -> String {
+    func transcribe(url: URL, locale: Locale = Locale(identifier: "fr-FR"), onDevice: Bool = false) async throws -> String {
         guard let recognizer = SFSpeechRecognizer(locale: locale), recognizer.isAvailable else {
             throw TranscriptionError.recognizerUnavailable
         }

@@ -26,11 +26,11 @@ struct LibraryView: View {
 
         var label: String {
             switch self {
-            case .all: return "All"
-            case .scenarios: return "Call scenarios"
+            case .all: return "Tous"
+            case .scenarios: return "Scénarios de call"
             case .objection: return "Objections"
-            case .custom: return "Custom"
-            case .redo: return "Redo"
+            case .custom: return "Personnalisés"
+            case .redo: return "À refaire"
             case .pattern: return "Patterns"
             }
         }
@@ -45,11 +45,11 @@ struct LibraryView: View {
         case .all:
             var out: [(String, [LibraryItem])] = []
             if !meetings.isEmpty {
-                out.append(("Call scenarios", meetings.map { LibraryItem.meeting($0) }))
+                out.append(("Scénarios de call", meetings.map { LibraryItem.meeting($0) }))
             }
             let custom = drills.filter { $0.isCustom }
             if !custom.isEmpty {
-                out.append(("Your custom drills", custom.map { LibraryItem.drill($0) }))
+                out.append(("Tes drills personnalisés", custom.map { LibraryItem.drill($0) }))
             }
             let obj = drills.filter { !$0.isCustom && $0.type == .objection }
             if !obj.isEmpty {
@@ -57,24 +57,24 @@ struct LibraryView: View {
             }
             let redo = drills.filter { !$0.isCustom && $0.type == .redo }
             if !redo.isEmpty {
-                out.append(("Redo moments", redo.map { LibraryItem.drill($0) }))
+                out.append(("Moments à refaire", redo.map { LibraryItem.drill($0) }))
             }
             let pat = drills.filter { !$0.isCustom && $0.type == .pattern }
             if !pat.isEmpty {
-                out.append(("Pattern drills", pat.map { LibraryItem.drill($0) }))
+                out.append(("Patterns à corriger", pat.map { LibraryItem.drill($0) }))
             }
             _ = doneToday
             return out
         case .scenarios:
-            return [("Call scenarios", meetings.map { LibraryItem.meeting($0) })]
+            return [("Scénarios de call", meetings.map { LibraryItem.meeting($0) })]
         case .custom:
-            return [("Your custom drills", drills.filter { $0.isCustom }.map { LibraryItem.drill($0) })]
+            return [("Tes drills personnalisés", drills.filter { $0.isCustom }.map { LibraryItem.drill($0) })]
         case .objection:
             return [("Objections", drills.filter { $0.type == .objection }.map { LibraryItem.drill($0) })]
         case .redo:
-            return [("Redo moments", drills.filter { $0.type == .redo }.map { LibraryItem.drill($0) })]
+            return [("Moments à refaire", drills.filter { $0.type == .redo }.map { LibraryItem.drill($0) })]
         case .pattern:
-            return [("Pattern drills", drills.filter { $0.type == .pattern }.map { LibraryItem.drill($0) })]
+            return [("Patterns à corriger", drills.filter { $0.type == .pattern }.map { LibraryItem.drill($0) })]
         }
     }
 
@@ -116,12 +116,12 @@ struct LibraryView: View {
         .padding(.top, 6)
         .background(Theme.background)
         .refreshable { await app.bootstrap() }
-        .alert("Delete this custom drill?", isPresented: Binding(
+        .alert("Supprimer ce drill ?", isPresented: Binding(
             get: { confirmDeleteDrill != nil },
             set: { if !$0 { confirmDeleteDrill = nil } }
         )) {
-            Button("Cancel", role: .cancel) { confirmDeleteDrill = nil }
-            Button("Delete", role: .destructive) {
+            Button("Annuler", role: .cancel) { confirmDeleteDrill = nil }
+            Button("Supprimer", role: .destructive) {
                 if let d = confirmDeleteDrill {
                     Task { await app.deleteCustomDrill(d) }
                 }
@@ -129,7 +129,7 @@ struct LibraryView: View {
             }
         } message: {
             if let d = confirmDeleteDrill {
-                Text("\u{201C}\(d.title)\u{201D} will be removed.")
+                Text("\u{201C}\(d.title)\u{201D} sera supprimé.")
             }
         }
     }
@@ -145,7 +145,7 @@ struct LibraryView: View {
             .contextMenu {
                 if d.isCustom {
                     Button(role: .destructive) { confirmDeleteDrill = d } label: {
-                        Label("Delete drill", systemImage: "trash")
+                        Label("Supprimer ce drill", systemImage: "trash")
                     }
                 }
             }
@@ -160,10 +160,10 @@ struct LibraryView: View {
     private var header: some View {
         HStack {
             VStack(alignment: .leading, spacing: 0) {
-                Text("Library")
+                Text("Drills")
                     .font(.system(size: 24, weight: .semibold))
                     .foregroundColor(Theme.textPrimary)
-                Text("\(app.drills.count + app.meetings.count) scenarios")
+                Text("\(app.drills.count + app.meetings.count) scénarios")
                     .font(.system(size: 12))
                     .foregroundColor(Theme.textSecondary)
             }
@@ -217,10 +217,10 @@ struct LibraryView: View {
 
     private var emptyState: some View {
         VStack(spacing: 8) {
-            Text("Nothing in this filter")
+            Text("Rien dans ce filtre")
                 .font(.system(size: 14, weight: .semibold))
                 .foregroundColor(Theme.textPrimary)
-            Text("Try another tab above")
+            Text("Essaie un autre onglet ci-dessus")
                 .font(.system(size: 12))
                 .foregroundColor(Theme.textSecondary)
         }
@@ -243,12 +243,12 @@ struct LibraryView: View {
         }
         let prompt = clientLines.max(by: { $0.text.count < $1.text.count })?.text
             ?? m.transcript.first(where: { $0.speaker.lowercased() != "commercial" })?.text
-            ?? "Imagine you start this call: introduce yourself and discover the client's needs."
+            ?? "Tu démarres ce call : présente-toi et fais ta découverte client."
 
         // Build a rich rubric from the category's markers (if known)
         let cat = categories.first { $0.name.caseInsensitiveCompare(m.category) == .orderedSame }
         let rubric: String? = cat.map { c in
-            var out = "Sales methodology: \(c.name)\n\n"
+            var out = "Méthodologie de vente : \(c.name)\n\n"
             out += c.markers.map {
                 "## \($0.displayOrder). \($0.title)\n\($0.description)"
             }.joined(separator: "\n\n")
@@ -259,7 +259,7 @@ struct LibraryView: View {
             id: "meeting-\(m.id)",
             type: .redo,
             title: m.title,
-            context: "\(m.category) scenario",
+            context: "Scénario \(m.category)",
             clientLine: prompt,
             audioDuration: 15,
             date: m.createdAt,
@@ -287,7 +287,7 @@ struct MeetingScenarioRow: View {
                         .font(.system(size: 15, weight: .semibold))
                         .foregroundColor(Theme.textPrimary)
                         .lineLimit(1)
-                    Text("SCENARIO")
+                    Text("SCÉNARIO")
                         .font(.system(size: 9, weight: .bold))
                         .tracking(0.8)
                         .foregroundColor(Theme.highlight)
@@ -295,7 +295,7 @@ struct MeetingScenarioRow: View {
                         .padding(.vertical, 2)
                         .background(Capsule().fill(Theme.highlight.opacity(0.12)))
                 }
-                Text("\(meeting.category) · \(meeting.transcript.count) lines")
+                Text("\(meeting.category) · \(meeting.transcript.count) lignes")
                     .font(.system(size: 12))
                     .foregroundColor(Theme.textSecondary)
             }

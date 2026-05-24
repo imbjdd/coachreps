@@ -40,16 +40,16 @@ struct ProfileView: View {
                     .foregroundColor(Theme.highlight)
             }
             VStack(spacing: 8) {
-                Text("No drills yet")
+                Text("Aucun drill encore")
                     .font(.system(size: 22, weight: .semibold))
                     .foregroundColor(Theme.textPrimary)
-                Text("Your level, badges, and patterns appear here\nafter you complete your first drill.")
+                Text("Ton niveau, tes badges et tes patterns apparaissent ici\naprès ton premier drill.")
                     .font(.system(size: 13))
                     .foregroundColor(Theme.textSecondary)
                     .multilineTextAlignment(.center)
                     .lineSpacing(3)
             }
-            PrimaryButton(title: "Start your first drill", icon: "play.fill") {
+            PrimaryButton(title: "Commencer mon premier drill", icon: "play.fill") {
                 onStartFirstDrill()
             }
             .padding(.top, 6)
@@ -68,7 +68,7 @@ struct ProfileView: View {
         let delta = last - first
         return HStack(spacing: 14) {
             VStack(alignment: .leading, spacing: 2) {
-                Text("PACE TREND")
+                Text("ÉVOLUTION DÉBIT")
                     .font(.system(size: 9, weight: .bold))
                     .tracking(1)
                     .foregroundColor(Theme.textTertiary)
@@ -96,7 +96,7 @@ struct ProfileView: View {
     private func deltaLabel(_ d: Double) -> String {
         if abs(d) < 1 { return "Stable" }
         let sign = d > 0 ? "+" : ""
-        return "\(sign)\(Int(d)) wpm vs first"
+        return "\(sign)\(Int(d)) wpm vs début"
     }
     private func deltaColor(_ d: Double) -> Color {
         if d > 0 { return Theme.warning } // faster — not always good
@@ -115,10 +115,10 @@ struct ProfileView: View {
                         .foregroundColor(app.teamCode.isEmpty ? Theme.textTertiary : Theme.highlight)
                 }
                 VStack(alignment: .leading, spacing: 2) {
-                    Text(app.teamCode.isEmpty ? "Join a team" : "Team \(app.teamCode)")
+                    Text(app.teamCode.isEmpty ? "Rejoindre une équipe" : "Équipe \(app.teamCode)")
                         .font(.system(size: 14, weight: .semibold))
                         .foregroundColor(Theme.textPrimary)
-                    Text(app.teamCode.isEmpty ? "Compare to a top performer" : "\(app.teamMembers.count) member\(app.teamMembers.count == 1 ? "" : "s") · \(app.teamSessions.count) drill\(app.teamSessions.count == 1 ? "" : "s")")
+                    Text(app.teamCode.isEmpty ? "Compare-toi au top performer" : "\(app.teamMembers.count) membre\(app.teamMembers.count == 1 ? "" : "s") · \(app.teamSessions.count) drill\(app.teamSessions.count == 1 ? "" : "s")")
                         .font(.system(size: 11))
                         .foregroundColor(Theme.textSecondary)
                 }
@@ -150,7 +150,7 @@ struct ProfileView: View {
                 Text(app.displayName)
                     .font(.system(size: 19, weight: .semibold))
                     .foregroundColor(Theme.textPrimary)
-                Text("Level \(app.stats.level) · \(app.stats.drillsCompleted) drills")
+                Text("Niveau \(app.stats.level) · \(app.stats.drillsCompleted) drills")
                     .font(.system(size: 13))
                     .foregroundColor(Theme.textSecondary)
             }
@@ -173,7 +173,7 @@ struct ProfileView: View {
         return VStack(alignment: .leading, spacing: 12) {
             HStack(alignment: .firstTextBaseline) {
                 HStack(spacing: 8) {
-                    Text("LEVEL")
+                    Text("NIVEAU")
                         .font(.system(size: 10, weight: .bold))
                         .tracking(1.2)
                         .foregroundColor(Theme.textTertiary)
@@ -201,7 +201,7 @@ struct ProfileView: View {
                 }
             }
             .frame(height: 8)
-            Text("\(p.needed - p.current) XP to level \(p.level + 1)")
+            Text("\(p.needed - p.current) XP avant le niveau \(p.level + 1)")
                 .font(.system(size: 11))
                 .foregroundColor(Theme.textSecondary)
         }
@@ -230,6 +230,7 @@ struct ProfileView: View {
                 }
                 .buttonStyle(.plain)
             }
+            // continues below
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 10) {
                     ForEach(GameSystem.allBadges) { badge in
@@ -243,12 +244,12 @@ struct ProfileView: View {
     private var statsGrid: some View {
         let derived = derivedPatterns()
         return VStack(alignment: .leading, spacing: 8) {
-            Text("YOUR PATTERNS")
+            Text("TES PATTERNS")
                 .font(.system(size: 10, weight: .bold))
                 .tracking(1.2)
                 .foregroundColor(Theme.textTertiary)
             if derived.isEmpty {
-                Text("Complete a drill to see your patterns")
+                Text("Fais un drill pour voir tes patterns")
                     .font(.system(size: 12))
                     .foregroundColor(Theme.textSecondary)
                     .frame(maxWidth: .infinity)
@@ -269,7 +270,7 @@ struct ProfileView: View {
     private var recentSessionRow: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack {
-                Text("LAST DRILL")
+                Text("DERNIER DRILL")
                     .font(.system(size: 10, weight: .bold))
                     .tracking(1.2)
                     .foregroundColor(Theme.textTertiary)
@@ -277,7 +278,7 @@ struct ProfileView: View {
                 if !app.sessions.isEmpty {
                     Button(action: onShowSessions) {
                         HStack(spacing: 4) {
-                            Text("History")
+                            Text("Historique")
                                 .font(.system(size: 11, weight: .semibold))
                                 .foregroundColor(Theme.textSecondary)
                             Image(systemName: "chevron.right")
@@ -292,7 +293,7 @@ struct ProfileView: View {
                 Button { openSession(s) } label: { SessionRow(session: s) }
                     .buttonStyle(.plain)
             } else {
-                Text("No drill completed yet")
+                Text("Aucun drill complété pour l'instant")
                     .font(.system(size: 12))
                     .foregroundColor(Theme.textSecondary)
                     .frame(maxWidth: .infinity)
@@ -527,7 +528,7 @@ struct SessionHistoryView: View {
             }
             .buttonStyle(.plain)
             Spacer()
-            Text("History · \(app.sessions.count)")
+            Text("Historique · \(app.sessions.count)")
                 .font(.system(size: 15, weight: .semibold))
                 .foregroundColor(Theme.textPrimary)
             Spacer()
@@ -604,14 +605,14 @@ struct LevelUpOverlay: View {
                         .font(.system(size: 32, weight: .bold))
                         .foregroundColor(.white)
                 }
-                Text("LEVEL UP")
+                Text("NIVEAU UP")
                     .font(.system(size: 11, weight: .bold))
                     .tracking(2)
                     .foregroundColor(Theme.textTertiary)
-                Text("Level \(level)")
+                Text("Niveau \(level)")
                     .font(.system(size: 30, weight: .bold))
                     .foregroundColor(Theme.textPrimary)
-                Button("Keep going") { onDismiss() }
+                Button("Continuer") { onDismiss() }
                     .font(.system(size: 15, weight: .semibold))
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)
@@ -634,7 +635,7 @@ struct BadgeUnlockOverlay: View {
             Color.black.opacity(0.35).ignoresSafeArea()
                 .onTapGesture { onDismiss() }
             VStack(spacing: 16) {
-                Text(badges.count == 1 ? "Badge unlocked" : "\(badges.count) badges unlocked")
+                Text(badges.count == 1 ? "Badge débloqué" : "\(badges.count) badges débloqués")
                     .font(.system(size: 17, weight: .semibold))
                     .foregroundColor(Theme.textPrimary)
                 VStack(spacing: 12) {

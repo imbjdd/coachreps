@@ -89,18 +89,18 @@ actor GeminiClient {
     private static func buildPrompt(drill: Drill, metrics: VoiceMetrics, transcript: String) -> String {
         let typeLabel: String = {
             switch drill.type {
-            case .objection: return "client objection"
-            case .redo: return "moment to redo"
-            case .pattern: return "pattern drill"
+            case .objection: return "objection client"
+            case .redo: return "moment à refaire"
+            case .pattern: return "drill de pattern"
             }
         }()
 
-        // If this drill carries a rich coaching rubric (e.g. from a Library marker), inject it.
+        // Si le drill porte un rubric riche (ex : marker Library), on l'injecte.
         let rubricBlock: String
         if let r = drill.coachingRubric, !r.isEmpty {
             rubricBlock = """
 
-        COACHING RUBRIC (this is the methodology the rep is practicing — score against THIS, not generic objection-handling)
+        RUBRIC DE COACHING (c'est la méthodologie que le commercial pratique — note CONTRE ÇA, pas du handle d'objection générique)
         \(r)
         """
         } else {
@@ -108,36 +108,36 @@ actor GeminiClient {
         }
 
         return """
-        You are an expert sales coach analyzing the vocal delivery of a sales rep on a \(typeLabel).
+        Tu es un coach commercial expert qui analyse la livraison vocale d'un commercial sur un \(typeLabel).
 
-        DRILL CONTEXT
-        Type: \(drill.type.rawValue)
-        Title: \(drill.title)
-        Situation: \(drill.context)
-        Prompt: "\(drill.clientLine)"
+        CONTEXTE DU DRILL
+        Type : \(drill.type.rawValue)
+        Titre : \(drill.title)
+        Situation : \(drill.context)
+        Prompt : "\(drill.clientLine)"
         \(rubricBlock)
 
-        SALES REP RESPONSE (raw transcription, may contain errors)
+        RÉPONSE DU COMMERCIAL (transcription brute, peut contenir des erreurs)
         "\(transcript)"
 
-        MEASURED VOICE METRICS
-        - Pace: \(metrics.wpm) words/minute (ideal for sales: 130-160 wpm)
-        - Filler words detected: \(metrics.fillerCount) (found: \(metrics.fillerWordsFound.joined(separator: ", ")))
-        - Pauses (≥ 0.5s): \(metrics.pauseCount)
-        - Pitch variation: \(String(format: "%.1f", metrics.pitchVariation)) semitones (ideal: > 3.0)
-        - Total duration: \(String(format: "%.1f", metrics.durationSec))s
-        - Weak language detected: \(metrics.weakPhrasesFound.joined(separator: ", "))
+        MÉTRIQUES VOCALES MESURÉES
+        - Débit : \(metrics.wpm) mots/minute (idéal commercial : 130-160 wpm)
+        - Mots fillers détectés : \(metrics.fillerCount) (trouvés : \(metrics.fillerWordsFound.joined(separator: ", ")))
+        - Pauses (≥ 0.5s) : \(metrics.pauseCount)
+        - Variation tonale : \(String(format: "%.1f", metrics.pitchVariation)) demi-tons (idéal : > 3.0)
+        - Durée totale : \(String(format: "%.1f", metrics.durationSec))s
+        - Langage faible détecté : \(metrics.weakPhrasesFound.joined(separator: ", "))
 
-        TASK
-        Return a coaching analysis as JSON. Use the same language as the rubric/prompt above (if it's in French, answer in French). Direct and challenging tone — think Patrick Bet-David / Jordan Belfort, not LinkedIn.
-        - headline: 1 punchy sentence summing up the main gap
-        - score: overall score out of 100, judged against the rubric (if a rubric is given) — otherwise general delivery quality
-        - analysis: 2-3 concrete sentences on what went wrong AND why
-        - improvements: 2-3 specific actions for next time (imperative, short)
-        - strengths: 1-2 things done well (don't destroy them)
-        - benchmark: target metrics to hit for this type of moment
+        TÂCHE
+        Renvoie une analyse de coaching en JSON, **en français**, ton direct et challengeant (style Patrick Bet-David / Jordan Belfort, pas LinkedIn).
+        - headline : 1 phrase punchy résumant le problème principal (ex : "Tu vas trop vite. Respire avant le prix.")
+        - score : note globale sur 100, jugée contre le rubric (s'il y en a un) sinon qualité de livraison générale
+        - analysis : 2-3 phrases concrètes sur ce qui n'a pas marché ET pourquoi (en lien avec la ligne client)
+        - improvements : 2-3 actions précises pour la prochaine fois (impératif, courtes)
+        - strengths : 1-2 choses bien faites (pour ne pas tout démolir)
+        - benchmark : métriques cibles à viser pour ce type de moment
 
-        Be tough but fair. No fluff. No "good try".
+        Sévère mais juste. Pas de blabla. Pas de "bonne tentative".
         """
     }
 }

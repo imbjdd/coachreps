@@ -4,18 +4,18 @@ import Accelerate
 
 enum AudioMetricsAnalyzer {
     private static let fillerPatterns: [String] = [
-        "um", "uh", "uhh", "er", "erm",
-        "like", "you know", "i mean",
-        "basically", "actually", "literally",
-        "so yeah", "kind of", "sort of",
-        "right", "okay so"
+        "euh", "euhm", "hum", "ben", "bah",
+        "en fait", "du coup", "voilà",
+        "genre", "tu vois", "tu sais",
+        "j'veux dire", "je veux dire",
+        "machin", "truc", "quoi"
     ]
 
     private static let weakPhrasePatterns: [String] = [
-        "i think", "maybe", "kind of",
-        "i guess", "i believe", "it seems",
-        "it's possible", "perhaps", "probably",
-        "i'm not sure", "if that makes sense"
+        "je pense que", "peut-être", "à peu près",
+        "je suppose", "je crois", "il me semble",
+        "c'est possible que", "j'imagine", "sans doute",
+        "je ne suis pas sûr"
     ]
 
     static func metrics(transcript: String, audioURL: URL, pitchLog: [Double] = [], pauseCount: Int = 0) -> VoiceMetrics {

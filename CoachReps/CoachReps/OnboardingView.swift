@@ -55,7 +55,7 @@ struct OnboardingView: View {
                 Text("Coach Reps")
                     .font(.system(size: 32, weight: .bold))
                     .foregroundColor(Theme.textPrimary)
-                Text("3 minutes a day.\nBecome a sharper closer.")
+                Text("3 minutes par jour.\nDeviens un meilleur closer.")
                     .font(.system(size: 17))
                     .foregroundColor(Theme.textSecondary)
                     .multilineTextAlignment(.center)
@@ -68,19 +68,19 @@ struct OnboardingView: View {
     private var howItWorksStep: some View {
         VStack(alignment: .leading, spacing: 26) {
             Spacer().frame(height: 12)
-            Text("How it works")
+            Text("Comment ça marche")
                 .font(.system(size: 28, weight: .bold))
                 .foregroundColor(Theme.textPrimary)
 
             VStack(alignment: .leading, spacing: 18) {
-                stepRow(num: "1", title: "Listen to a real moment",
-                        subtitle: "A client objection from sales call.")
-                stepRow(num: "2", title: "Record your response",
-                        subtitle: "30 seconds. Speak like it's live.")
-                stepRow(num: "3", title: "Get scored by AI",
-                        subtitle: "Pace, fillers, pauses, pitch.")
-                stepRow(num: "4", title: "Level up",
-                        subtitle: "Earn XP, unlock badges, build a streak.")
+                stepRow(num: "1", title: "Écoute un vrai moment",
+                        subtitle: "Une objection client extraite d'un call.")
+                stepRow(num: "2", title: "Enregistre ta réponse",
+                        subtitle: "30 secondes. Parle comme en live.")
+                stepRow(num: "3", title: "Reçois ton score IA",
+                        subtitle: "Débit, fillers, pauses, variation tonale.")
+                stepRow(num: "4", title: "Monte en niveau",
+                        subtitle: "Gagne de l'XP, débloque des badges, garde ton streak.")
             }
             Spacer()
         }
@@ -89,14 +89,14 @@ struct OnboardingView: View {
     private var nameStep: some View {
         VStack(alignment: .leading, spacing: 22) {
             Spacer().frame(height: 24)
-            Text("What should we call you?")
+            Text("Comment on doit t'appeler ?")
                 .font(.system(size: 26, weight: .bold))
                 .foregroundColor(Theme.textPrimary)
-            Text("Your name only — stays on your device.")
+            Text("Juste ton prénom — reste sur ton appareil.")
                 .font(.system(size: 14))
                 .foregroundColor(Theme.textSecondary)
 
-            TextField("Your first name", text: $name)
+            TextField("Ton prénom", text: $name)
                 .focused($nameFocused)
                 .font(.system(size: 17))
                 .padding(16)
@@ -135,7 +135,7 @@ struct OnboardingView: View {
     private var bottomBar: some View {
         HStack(spacing: 10) {
             if step > 0 {
-                Button("Back") { withAnimation { step -= 1 } }
+                Button("Retour") { withAnimation { step -= 1 } }
                     .font(.system(size: 15, weight: .semibold))
                     .foregroundColor(Theme.textSecondary)
                     .frame(maxWidth: .infinity)
@@ -144,7 +144,7 @@ struct OnboardingView: View {
                     .overlay(RoundedRectangle(cornerRadius: 14).stroke(Theme.border, lineWidth: 1))
             }
             Button(action: next) {
-                Text(step < 2 ? "Continue" : "Get started")
+                Text(step < 2 ? "Continuer" : "C'est parti")
                     .font(.system(size: 15, weight: .semibold))
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)

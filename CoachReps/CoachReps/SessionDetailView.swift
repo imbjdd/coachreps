@@ -44,7 +44,7 @@ struct SessionDetailView: View {
             .buttonStyle(.plain)
             Spacer()
             VStack(spacing: 0) {
-                Text("Drill recap")
+                Text("Récap du drill")
                     .font(.system(size: 15, weight: .semibold))
                     .foregroundColor(Theme.textPrimary)
                 Text(dateLabel)
@@ -90,7 +90,7 @@ struct SessionDetailView: View {
                     .padding(.horizontal, 8)
                     .padding(.vertical, 4)
                     .background(Capsule().fill(Theme.accent))
-                Text(String(format: "%.1fs recorded", session.durationSec))
+                Text(String(format: "%.1fs enregistrés", session.durationSec))
                     .font(.system(size: 12))
                     .foregroundColor(Theme.textSecondary)
             }
@@ -137,7 +137,7 @@ struct SessionDetailView: View {
     private var analysisCard: some View {
         if !session.analysis.isEmpty {
             VStack(alignment: .leading, spacing: 8) {
-                Text("ANALYSIS")
+                Text("ANALYSE")
                     .font(.system(size: 10, weight: .bold))
                     .tracking(1.2)
                     .foregroundColor(Theme.textTertiary)
@@ -156,7 +156,7 @@ struct SessionDetailView: View {
     private var improvementsCard: some View {
         if !session.improvements.isEmpty {
             VStack(alignment: .leading, spacing: 10) {
-                Text("TO FIX")
+                Text("À CORRIGER")
                     .font(.system(size: 10, weight: .bold))
                     .tracking(1.2)
                     .foregroundColor(Theme.textTertiary)
@@ -183,7 +183,7 @@ struct SessionDetailView: View {
 
     private var transcriptCard: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("WHAT YOU SAID")
+            Text("CE QUE TU AS DIT")
                 .font(.system(size: 10, weight: .bold))
                 .tracking(1.2)
                 .foregroundColor(Theme.textTertiary)

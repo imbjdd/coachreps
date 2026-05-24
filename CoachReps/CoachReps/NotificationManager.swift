@@ -25,8 +25,8 @@ enum NotificationManager {
         center.removePendingNotificationRequests(withIdentifiers: [dailyReminderID])
 
         let content = UNMutableNotificationContent()
-        content.title = "Time to train"
-        content.body = "3 minutes. Don't break your streak."
+        content.title = "C'est l'heure de s'entraîner"
+        content.body = "3 minutes. Ne casse pas ton streak."
         content.sound = .default
 
         var date = DateComponents()

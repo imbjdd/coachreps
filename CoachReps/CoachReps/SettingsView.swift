@@ -35,16 +35,16 @@ struct SettingsView: View {
             comps.minute = app.reminderMinute
             reminderTime = Calendar.current.date(from: comps) ?? Date()
         }
-        .alert("Reset all progress?", isPresented: $confirmReset) {
-            Button("Cancel", role: .cancel) {}
-            Button("Reset", role: .destructive) {
+        .alert("Réinitialiser toute la progression ?", isPresented: $confirmReset) {
+            Button("Annuler", role: .cancel) {}
+            Button("Réinitialiser", role: .destructive) {
                 Task {
                     await app.resetProgress()
                     onClose()
                 }
             }
         } message: {
-            Text("This will clear your XP, level, streak, and badges. Your name stays.")
+            Text("Tes XP, ton niveau, ton streak et tes badges seront effacés. Ton nom reste.")
         }
     }
 
@@ -59,7 +59,7 @@ struct SettingsView: View {
             }
             .buttonStyle(.plain)
             Spacer()
-            Text("Settings")
+            Text("Réglages")
                 .font(.system(size: 15, weight: .semibold))
                 .foregroundColor(Theme.textPrimary)
             Spacer()
@@ -73,13 +73,13 @@ struct SettingsView: View {
 
     private var nameSection: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("YOUR NAME")
+            Text("TON NOM")
                 .font(.system(size: 10, weight: .bold))
                 .tracking(1.2)
                 .foregroundColor(Theme.textTertiary)
             if editingName {
                 HStack(spacing: 8) {
-                    TextField("Your name", text: $newName)
+                    TextField("Ton nom", text: $newName)
                         .font(.system(size: 15))
                         .padding(.horizontal, 14)
                         .padding(.vertical, 12)
@@ -110,7 +110,7 @@ struct SettingsView: View {
                             .font(.system(size: 15, weight: .medium))
                             .foregroundColor(Theme.textPrimary)
                         Spacer()
-                        Text("Edit")
+                        Text("Modifier")
                             .font(.system(size: 13, weight: .semibold))
                             .foregroundColor(Theme.textSecondary)
                     }
@@ -126,17 +126,17 @@ struct SettingsView: View {
 
     private var reminderSection: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("DAILY REMINDER")
+            Text("RAPPEL QUOTIDIEN")
                 .font(.system(size: 10, weight: .bold))
                 .tracking(1.2)
                 .foregroundColor(Theme.textTertiary)
             VStack(spacing: 0) {
                 HStack {
                     VStack(alignment: .leading, spacing: 2) {
-                        Text("Reminder")
+                        Text("Rappel")
                             .font(.system(size: 14, weight: .medium))
                             .foregroundColor(Theme.textPrimary)
-                        Text(app.reminderEnabled ? "Daily at \(timeLabel)" : "Off")
+                        Text(app.reminderEnabled ? "Tous les jours à \(timeLabel)" : "Désactivé")
                             .font(.system(size: 12))
                             .foregroundColor(Theme.textSecondary)
                     }
@@ -156,7 +156,7 @@ struct SettingsView: View {
                 if app.reminderEnabled {
                     Divider().padding(.horizontal, 14)
                     HStack {
-                        Text("Time")
+                        Text("Heure")
                             .font(.system(size: 14))
                             .foregroundColor(Theme.textPrimary)
                         Spacer()
@@ -177,7 +177,7 @@ struct SettingsView: View {
             .overlay(RoundedRectangle(cornerRadius: 12).stroke(Theme.border, lineWidth: 1))
 
             if !notifPermission && app.reminderEnabled {
-                Text("Notifications disabled in iOS Settings — enable to receive reminders.")
+                Text("Notifications désactivées dans Réglages iOS — active-les pour recevoir les rappels.")
                     .font(.system(size: 11))
                     .foregroundColor(Theme.danger)
             }
@@ -211,13 +211,13 @@ struct SettingsView: View {
 
     private var teamSection: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("TEAM")
+            Text("ÉQUIPE")
                 .font(.system(size: 10, weight: .bold))
                 .tracking(1.2)
                 .foregroundColor(Theme.textTertiary)
             if editingTeam {
                 HStack(spacing: 8) {
-                    TextField("Team code (e.g. ACME)", text: $newTeam)
+                    TextField("Code équipe (ex : ACME)", text: $newTeam)
                         .font(.system(size: 14))
                         .textInputAutocapitalization(.characters)
                         .autocorrectionDisabled(true)
@@ -246,15 +246,15 @@ struct SettingsView: View {
                 } label: {
                     HStack {
                         VStack(alignment: .leading, spacing: 2) {
-                            Text(app.teamCode.isEmpty ? "Join a team" : app.teamCode)
+                            Text(app.teamCode.isEmpty ? "Rejoindre une équipe" : app.teamCode)
                                 .font(.system(size: 14, weight: .medium))
                                 .foregroundColor(Theme.textPrimary)
-                            Text(app.teamCode.isEmpty ? "Compare to top performer" : "\(app.teamMembers.count) teammates")
+                            Text(app.teamCode.isEmpty ? "Compare-toi au top performer" : "\(app.teamMembers.count) coéquipiers")
                                 .font(.system(size: 11))
                                 .foregroundColor(Theme.textSecondary)
                         }
                         Spacer()
-                        Text(app.teamCode.isEmpty ? "Add" : "Change")
+                        Text(app.teamCode.isEmpty ? "Ajouter" : "Changer")
                             .font(.system(size: 13, weight: .semibold))
                             .foregroundColor(Theme.textSecondary)
                     }
@@ -265,7 +265,7 @@ struct SettingsView: View {
                 }
                 .buttonStyle(.plain)
             }
-            Text("Anyone with the same code is on your leaderboard.")
+            Text("Toute personne avec le même code apparaît sur ton classement.")
                 .font(.system(size: 11))
                 .foregroundColor(Theme.textTertiary)
         }
@@ -273,22 +273,22 @@ struct SettingsView: View {
 
     private var progressSection: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("PROGRESS")
+            Text("PROGRESSION")
                 .font(.system(size: 10, weight: .bold))
                 .tracking(1.2)
                 .foregroundColor(Theme.textTertiary)
             VStack(spacing: 8) {
-                infoRow(label: "Level", value: "\(app.stats.level)")
+                infoRow(label: "Niveau", value: "\(app.stats.level)")
                 infoRow(label: "Total XP", value: "\(app.stats.totalXP)")
-                infoRow(label: "Drills completed", value: "\(app.stats.drillsCompleted)")
-                infoRow(label: "Current streak", value: "\(app.stats.streak) \(app.stats.streak == 1 ? "day" : "days")")
-                infoRow(label: "Badges unlocked", value: "\(app.stats.unlockedBadges.count) / \(GameSystem.allBadges.count)")
+                infoRow(label: "Drills complétés", value: "\(app.stats.drillsCompleted)")
+                infoRow(label: "Streak actuel", value: "\(app.stats.streak) \(app.stats.streak == 1 ? "jour" : "jours")")
+                infoRow(label: "Badges débloqués", value: "\(app.stats.unlockedBadges.count) / \(GameSystem.allBadges.count)")
             }
 
             Button { confirmReset = true } label: {
                 HStack {
                     Image(systemName: "arrow.counterclockwise")
-                    Text("Reset progress")
+                    Text("Réinitialiser la progression")
                 }
                 .font(.system(size: 14, weight: .semibold))
                 .foregroundColor(Theme.danger)
@@ -303,13 +303,13 @@ struct SettingsView: View {
 
     private var aboutSection: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("ABOUT")
+            Text("À PROPOS")
                 .font(.system(size: 10, weight: .bold))
                 .tracking(1.2)
                 .foregroundColor(Theme.textTertiary)
             VStack(spacing: 8) {
-                infoRow(label: "App version", value: appVersion)
-                infoRow(label: "Drills available", value: "\(app.drills.count)")
+                infoRow(label: "Version de l'app", value: appVersion)
+                infoRow(label: "Drills disponibles", value: "\(app.drills.count)")
             }
         }
     }

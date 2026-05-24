@@ -35,16 +35,16 @@ enum GameSystem {
     }
 
     static let allBadges: [Badge] = [
-        Badge(id: "first_drill", name: "First drill", description: "Complete your first drill", icon: "checkmark.seal.fill"),
-        Badge(id: "streak_3", name: "3 day streak", description: "Practice 3 days in a row", icon: "flame.fill"),
-        Badge(id: "streak_7", name: "One week", description: "Practice 7 days in a row", icon: "flame.circle.fill"),
-        Badge(id: "streak_30", name: "One month", description: "Practice 30 days in a row", icon: "crown.fill"),
-        Badge(id: "drills_10", name: "10 drills", description: "Complete 10 drills", icon: "10.circle.fill"),
-        Badge(id: "drills_50", name: "50 drills", description: "Complete 50 drills", icon: "50.circle.fill"),
-        Badge(id: "perfect_score", name: "Sharp shooter", description: "Score 90+ on a drill", icon: "star.circle.fill"),
-        Badge(id: "no_fillers", name: "Zero fillers", description: "Drill without a single filler", icon: "mouth.fill"),
-        Badge(id: "level_5", name: "Level 5", description: "Reach level 5", icon: "5.circle.fill"),
-        Badge(id: "level_10", name: "Level 10", description: "Reach level 10", icon: "10.circle.fill"),
+        Badge(id: "first_drill", name: "Premier drill", description: "Complète ton premier drill", icon: "checkmark.seal.fill"),
+        Badge(id: "streak_3", name: "Streak de 3 jours", description: "Pratique 3 jours d'affilée", icon: "flame.fill"),
+        Badge(id: "streak_7", name: "Une semaine", description: "Pratique 7 jours d'affilée", icon: "flame.circle.fill"),
+        Badge(id: "streak_30", name: "Un mois", description: "Pratique 30 jours d'affilée", icon: "crown.fill"),
+        Badge(id: "drills_10", name: "10 drills", description: "Complète 10 drills", icon: "10.circle.fill"),
+        Badge(id: "drills_50", name: "50 drills", description: "Complète 50 drills", icon: "50.circle.fill"),
+        Badge(id: "perfect_score", name: "Tireur d'élite", description: "Score 90+ sur un drill", icon: "star.circle.fill"),
+        Badge(id: "no_fillers", name: "Zéro filler", description: "Drill sans un seul filler", icon: "mouth.fill"),
+        Badge(id: "level_5", name: "Niveau 5", description: "Atteins le niveau 5", icon: "5.circle.fill"),
+        Badge(id: "level_10", name: "Niveau 10", description: "Atteins le niveau 10", icon: "10.circle.fill"),
     ]
 
     static func badge(for id: String) -> Badge? {
