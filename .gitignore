@@ -45,3 +45,6 @@ firestore-debug.log
 # Editor
 .idea/
 .vscode/
+
+# Claude Code session state
+.claude/
