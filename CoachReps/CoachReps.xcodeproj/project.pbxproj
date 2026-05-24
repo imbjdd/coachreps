@@ -1,0 +1,436 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BF00000000000000000C0001 /* CoachRepsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000C0001 /* CoachRepsApp.swift */; };
+		BF00000000000000000C0002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000C0002 /* ContentView.swift */; };
+		BF00000000000000000C0003 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000C0003 /* Theme.swift */; };
+		BF00000000000000000C0004 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000C0004 /* Models.swift */; };
+		BF00000000000000000C0005 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000C0005 /* MockData.swift */; };
+		BF00000000000000000C0006 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000C0006 /* HomeView.swift */; };
+		BF00000000000000000C0007 /* DrillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000C0007 /* DrillView.swift */; };
+		BF00000000000000000C0008 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000C0008 /* ProfileView.swift */; };
+		BF00000000000000000C0009 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000C0009 /* Components.swift */; };
+		BF00000000000000000C000A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000C000A /* Assets.xcassets */; };
+		BF00000000000000000C000B /* AudioEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000C000B /* AudioEngine.swift */; };
+		BF00000000000000000C000C /* APIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000C000C /* APIConfig.swift */; };
+		BF00000000000000000C000D /* FirestoreClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000C000D /* FirestoreClient.swift */; };
+		BF00000000000000000C000E /* GeminiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000C000E /* GeminiClient.swift */; };
+		BF00000000000000000C000F /* SpeechTranscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000C000F /* SpeechTranscriber.swift */; };
+		BF00000000000000000C0010 /* AudioMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000C0010 /* AudioMetrics.swift */; };
+		BF00000000000000000C0011 /* GameSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000C0011 /* GameSystem.swift */; };
+		BF00000000000000000C0012 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000C0012 /* AppState.swift */; };
+		BF00000000000000000C0013 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000C0013 /* GoogleService-Info.plist */; };
+		BF00000000000000000C0015 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000C0015 /* OnboardingView.swift */; };
+		BF00000000000000000C0016 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000C0016 /* SettingsView.swift */; };
+		BF00000000000000000C0017 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000C0017 /* NotificationManager.swift */; };
+		BF00000000000000000C0018 /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000C0018 /* LeaderboardView.swift */; };
+		BF00000000000000000C0019 /* CallIngestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000C0019 /* CallIngestion.swift */; };
+		BF00000000000000000C001A /* CallImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000C001A /* CallImportView.swift */; };
+		BF00000000000000000C001B /* SessionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000C001B /* SessionDetailView.swift */; };
+		BF00000000000000000C001C /* LibraryModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000C001C /* LibraryModels.swift */; };
+		BF00000000000000000C001D /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000C001D /* LibraryView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		FF00000000000000000C0001 /* CoachRepsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachRepsApp.swift; sourceTree = "<group>"; };
+		FF00000000000000000C0002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FF00000000000000000C0003 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		FF00000000000000000C0004 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		FF00000000000000000C0005 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		FF00000000000000000C0006 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		FF00000000000000000C0007 /* DrillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrillView.swift; sourceTree = "<group>"; };
+		FF00000000000000000C0008 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		FF00000000000000000C0009 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
+		FF00000000000000000C000A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FF00000000000000000C000B /* AudioEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioEngine.swift; sourceTree = "<group>"; };
+		FF00000000000000000C000C /* APIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfig.swift; sourceTree = "<group>"; };
+		FF00000000000000000C000D /* FirestoreClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreClient.swift; sourceTree = "<group>"; };
+		FF00000000000000000C000E /* GeminiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeminiClient.swift; sourceTree = "<group>"; };
+		FF00000000000000000C000F /* SpeechTranscriber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechTranscriber.swift; sourceTree = "<group>"; };
+		FF00000000000000000C0010 /* AudioMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioMetrics.swift; sourceTree = "<group>"; };
+		FF00000000000000000C0011 /* GameSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSystem.swift; sourceTree = "<group>"; };
+		FF00000000000000000C0012 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		FF00000000000000000C0013 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FF00000000000000000C0015 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		FF00000000000000000C0016 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		FF00000000000000000C0017 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		FF00000000000000000C0018 /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
+		FF00000000000000000C0019 /* CallIngestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallIngestion.swift; sourceTree = "<group>"; };
+		FF00000000000000000C001A /* CallImportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallImportView.swift; sourceTree = "<group>"; };
+		FF00000000000000000C001B /* SessionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDetailView.swift; sourceTree = "<group>"; };
+		FF00000000000000000C001C /* LibraryModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryModels.swift; sourceTree = "<group>"; };
+		FF00000000000000000C001D /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
+		FF00000000000000000C00FF /* CoachReps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoachReps.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AA00000000000000000000A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AA00000000000000000000A2 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				AA00000000000000000000A3 /* CoachReps */,
+				AA00000000000000000000A4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AA00000000000000000000A3 /* CoachReps */ = {
+			isa = PBXGroup;
+			children = (
+				FF00000000000000000C0001 /* CoachRepsApp.swift */,
+				FF00000000000000000C0002 /* ContentView.swift */,
+				FF00000000000000000C0003 /* Theme.swift */,
+				FF00000000000000000C0004 /* Models.swift */,
+				FF00000000000000000C0012 /* AppState.swift */,
+				FF00000000000000000C000C /* APIConfig.swift */,
+				FF00000000000000000C000D /* FirestoreClient.swift */,
+				FF00000000000000000C000E /* GeminiClient.swift */,
+				FF00000000000000000C000F /* SpeechTranscriber.swift */,
+				FF00000000000000000C0010 /* AudioMetrics.swift */,
+				FF00000000000000000C0011 /* GameSystem.swift */,
+				FF00000000000000000C0006 /* HomeView.swift */,
+				FF00000000000000000C0007 /* DrillView.swift */,
+				FF00000000000000000C0008 /* ProfileView.swift */,
+				FF00000000000000000C0015 /* OnboardingView.swift */,
+				FF00000000000000000C0016 /* SettingsView.swift */,
+				FF00000000000000000C0017 /* NotificationManager.swift */,
+				FF00000000000000000C0018 /* LeaderboardView.swift */,
+				FF00000000000000000C0019 /* CallIngestion.swift */,
+				FF00000000000000000C001A /* CallImportView.swift */,
+				FF00000000000000000C001B /* SessionDetailView.swift */,
+				FF00000000000000000C001C /* LibraryModels.swift */,
+				FF00000000000000000C001D /* LibraryView.swift */,
+				FF00000000000000000C0009 /* Components.swift */,
+				FF00000000000000000C000B /* AudioEngine.swift */,
+				FF00000000000000000C0013 /* GoogleService-Info.plist */,
+				FF00000000000000000C000A /* Assets.xcassets */,
+			);
+			path = CoachReps;
+			sourceTree = "<group>";
+		};
+		AA00000000000000000000A4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FF00000000000000000C00FF /* CoachReps.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AA00000000000000000000A5 /* CoachReps */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA00000000000000000000B2 /* Build configuration list for PBXNativeTarget "CoachReps" */;
+			buildPhases = (
+				AA00000000000000000000A6 /* Sources */,
+				AA00000000000000000000A7 /* Frameworks */,
+				AA00000000000000000000A8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CoachReps;
+			productName = CoachReps;
+			productReference = FF00000000000000000C00FF /* CoachReps.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AA00000000000000000000A1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					AA00000000000000000000A5 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = AA00000000000000000000B1 /* Build configuration list for PBXProject "CoachReps" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				fr,
+			);
+			mainGroup = AA00000000000000000000A2;
+			productRefGroup = AA00000000000000000000A4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AA00000000000000000000A5 /* CoachReps */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AA00000000000000000000A8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF00000000000000000C000A /* Assets.xcassets in Resources */,
+				BF00000000000000000C0013 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AA00000000000000000000A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF00000000000000000C0001 /* CoachRepsApp.swift in Sources */,
+				BF00000000000000000C0002 /* ContentView.swift in Sources */,
+				BF00000000000000000C0003 /* Theme.swift in Sources */,
+				BF00000000000000000C0004 /* Models.swift in Sources */,
+				BF00000000000000000C0006 /* HomeView.swift in Sources */,
+				BF00000000000000000C0007 /* DrillView.swift in Sources */,
+				BF00000000000000000C0008 /* ProfileView.swift in Sources */,
+				BF00000000000000000C0015 /* OnboardingView.swift in Sources */,
+				BF00000000000000000C0016 /* SettingsView.swift in Sources */,
+				BF00000000000000000C0017 /* NotificationManager.swift in Sources */,
+				BF00000000000000000C0018 /* LeaderboardView.swift in Sources */,
+				BF00000000000000000C0019 /* CallIngestion.swift in Sources */,
+				BF00000000000000000C001A /* CallImportView.swift in Sources */,
+				BF00000000000000000C001B /* SessionDetailView.swift in Sources */,
+				BF00000000000000000C001C /* LibraryModels.swift in Sources */,
+				BF00000000000000000C001D /* LibraryView.swift in Sources */,
+				BF00000000000000000C0009 /* Components.swift in Sources */,
+				BF00000000000000000C000B /* AudioEngine.swift in Sources */,
+				BF00000000000000000C000C /* APIConfig.swift in Sources */,
+				BF00000000000000000C000D /* FirestoreClient.swift in Sources */,
+				BF00000000000000000C000E /* GeminiClient.swift in Sources */,
+				BF00000000000000000C000F /* SpeechTranscriber.swift in Sources */,
+				BF00000000000000000C0010 /* AudioMetrics.swift in Sources */,
+				BF00000000000000000C0011 /* GameSystem.swift in Sources */,
+				BF00000000000000000C0012 /* AppState.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		AA00000000000000000000B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AA00000000000000000000B4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AA00000000000000000000B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 94W7LD293Z;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Coach Reps utilise le micro pour enregistrer tes drills vocaux.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Coach Reps transcrit tes drills en texte pour analyser ta livraison.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.coachreps.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AA00000000000000000000B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 94W7LD293Z;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Coach Reps utilise le micro pour enregistrer tes drills vocaux.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Coach Reps transcrit tes drills en texte pour analyser ta livraison.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.coachreps.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AA00000000000000000000B1 /* Build configuration list for PBXProject "CoachReps" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA00000000000000000000B3 /* Debug */,
+				AA00000000000000000000B4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA00000000000000000000B2 /* Build configuration list for PBXNativeTarget "CoachReps" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA00000000000000000000B5 /* Debug */,
+				AA00000000000000000000B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AA00000000000000000000A1 /* Project object */;
+}
