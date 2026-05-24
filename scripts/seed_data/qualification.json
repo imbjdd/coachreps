@@ -1,0 +1,60 @@
+{
+  "category": "Qualification",
+  "displayOrder": 1,
+  "markers": [
+    {
+      "title": "Introduction personnelle",
+      "display_order": 1,
+      "description": "Dans cette première partie, ton objectif est de **créer du lien personnel avec ton interlocuteur et d'établir ta crédibilité avant de parler du produit.** Présente brièvement ton parcours et explique comment est née la solution SalesAI.\n\n• Partage ton parcours personnel (ex. foot, études d'informatique aux États-Unis, test en Alsace).\n• Fais la transition naturelle vers Lucy, puis SalesAI.\n• Explique la logique et la dimension terrain de la solution, issue d'une expérience réelle sur le terrain avec MedTech Lyon.\n• Montre que SalesAI est né d'un besoin concret des commerciaux, et non d'une idée théorique.\n\nCette introduction humanise ton discours, crée de la confiance et prépare le terrain pour la présentation du produit.",
+      "short_description": "Ici, tu dois créer du lien avec ton interlocuteur en partageant ton parcours personnel et en expliquant comment est née la solution SalesAI. L'objectif est d'humaniser ton discours, de montrer que SalesAI vient du terrain et de poser une base de confiance avant de présenter le produit."
+    },
+    {
+      "title": "Présentation client",
+      "display_order": 2,
+      "description": "Ici, tu dois **découvrir le rôle et l'organisation commerciale du prospect**, ses processus actuels et son niveau de connaissance de la tech. \n\n• Invitation claire à se présenter ou à parler de son rôle.\n• Compréhension du contexte professionnel et des responsabilités de l'interlocuteur.\n• Exploration du niveau de sensibilité à l'innovation, au digital ou à l'IA (curiosité, ouverture, expérience passée, projets similaires).\n\nCette phase de découverte nourrit la qualification MEDDPICC et oriente la démonstration vers les vrais besoins business du client.",
+      "short_description": "Ici, tu dois découvrir l'organisation commerciale du prospect, ses processus actuels et son niveau de connaissance de la tech."
+    },
+    {
+      "title": "Découverte client",
+      "display_order": 3,
+      "description": "Dans cette phase de découverte, ton objectif est de comprendre en profondeur les enjeux réels de la direction commerciale pour préparer la suite de ton argumentaire. Ce n'est pas une simple collecte d'informations : **il s'agit d'identifier ce qui bloque réellement la performance ou la structuration commerciale ou tout autre enjeux du client.** C'est un phase très importante, si ce n'est la phase clés de ta déballe de Qualification. \n\nTu dois amener ton interlocuteur à exprimer ses vrais défis et priorités, en posant des questions ouvertes et en creusant les causes profondes des problèmes évoqués.\n\n• Explore le type d'enjeu principal : structuration, contrôle, performance, expansion, ou autre.\n• Fais émerger les causes racines : manque de données, faible visibilité sur le terrain, absence d'outils pour piloter les résultats.\n• Creuse les conséquences concrètes de ces problèmes sur les équipes ou sur la croissance.\n• Cette étape permet aussi de savoir si le client correspond à notre ICP (ideal customer profil) cad à dire qu'il a un plan de vente, il est porté vers la formation continue de ses commerciaux, souhaite donner les moyens à ses managers et possède plus de 10 commerciaux.\n• Cette phase de découverte doit amener la phase de reformulation de ta compréhension du problème qui doit être concise claire et fluide. Plus la phase de découverte est bien faite plus la reformulation sera simple.\n• Un bon ration de partie découverte est de 70% pour le client et 30% pour le commercial.\n\nL'enjeu ici est de montrer une vraie compréhension du business du client, en évitant les questions génériques ou superficielles. Plus ta découverte est précise et contextualisée, plus la suite de ton discours semblera pertinente et sur mesure.",
+      "short_description": "Ici, tu dois comprendre en profondeur les vrais enjeux de la direction commerciale : structuration, contrôle, performance ou croissance. Pose des questions ouvertes, creuse les causes et les conséquences des problèmes pour faire parler ton interlocuteur (objectif : 70 % client / 30 % toi). Une découverte claire et contextualisée facilite ta reformulation et prépare une qualification solide."
+    },
+    {
+      "title": "Reformulation besoin",
+      "display_order": 4,
+      "description": "Cette étape suit la phase de découverte. Ton objectif est de **reformuler clairement les besoins du client pour valider ta compréhension avant de passer à la présentation de SalesAI.**\n\n• Synthétise les informations clés : contexte, enjeux, priorités.\n• Valide ta compréhension avec une reformulation fluide et naturelle.\n• Fais la transition vers la présentation en montrant que tu as bien cerné ses attentes.\n\nUne reformulation concise et droit au but (comme l'OM) renforce la confiance et prépare la suite de l'échange.",
+      "short_description": "Ici, tu dois reformuler les besoins du client après la découverte pour valider ta compréhension avant de présenter la solution. Sois clair, concis et fluide : résume le contexte, les enjeux et les priorités pour montrer que tu as bien compris ses attentes et renforcer la confiance."
+    },
+    {
+      "title": "Problématiques du secteur",
+      "display_order": 5,
+      "description": "Dans cette phase, ton objectif est de mettre en contexte les problématiques du marché pour que ton interlocuteur se reconnaisse dans les enjeux évoqués. Tu dois **faire le lien entre ce qu'il t'a dit précédemment et les défis globaux du secteur**, afin de créer un enchaînement fluide et crédible dans ton discours.\n\n• Fais la transition entre les enjeux identifiés et les problématiques du secteur (manque de coaching terrain, non-respect du plan de vente, absence de standardisation, données terrain manquantes).\n• Adapte ton discours aux problématiques spécifiques du prospect, en évitant les phrases toutes faites.\n• Illustre avec des anecdotes concrètes ou des exemples vécus pour renforcer la crédibilité.\n• Cherche la validation du client, qu'il reconnaisse ces problèmes comme les siens.\n• **Crée une légère tension positive** : montre que ce n'est pas possible d'opérer efficacement dans ses conditions actuelles. Il doit se sentir piqué et considérer que cette problématique est une priorité, mais rassure-le en précisant qu'il n'est pas le seul à rencontrer ces difficultés.\n\nUne mise en contexte réussie montre que tu comprends son environnement, que tu partages un constat commun avec d'autres acteurs du marché et que ton approche s'inscrit dans les réalités terrain, pas dans un discours générique.",
+      "short_description": "Ici, tu dois relier les enjeux du client aux problématiques du marché. Montre que ses difficultés (manque de coaching, standardisation, données) sont communes dans le secteur, crée une légère tension positive pour qu'il prenne conscience du problème, tout en le rassurant qu'il n'est pas seul."
+    },
+    {
+      "title": "Présentation Coach",
+      "display_order": 6,
+      "description": "Dans cette phase, ton objectif est de présenter SalesAI sans encore montrer l'outil, en **donnant envie et en projetant le client dans la valeur concrète de la solution.** C'est une étape essentielle où tu dois **créer de la curiosité et montrer que SalesAI répond directement à ses enjeux.**\n\n• Explique le cœur du métier : capter la donnée terrain, l'analyser via une IA spécialisée et en faire un levier de performance.\n• Présente le fonctionnement clair et fluide :\n - Avant le rendez-vous → récupération automatique des infos clés des échanges précédents.\n - Pendant → enregistrement sans action du commercial.\n - Après → analyse, génération de documents et création de coachings virtuels.\n• Mets en avant la valeur concrète : standardisation des bonnes pratiques, accompagnement continu, dashboard connecté au terrain, détection des discours non conformes, automatisation administrative.\n• Exemples d'usage ou anecdotes illustrant comment SalesAI permet d'améliorer la performance commerciale (+30 %).\n• Lien clair avec les enjeux réelles du client défini dans la partie découverte (structuration, contrôle, performance, croissance).\n\nNe cherche pas à tout dire : sélectionne les points les plus pertinents selon les enjeux exprimés. Une présentation réussie suscite la curiosité, donne envie d'en voir plus et installe SalesAI comme la réponse évidente à son besoin.",
+      "short_description": "Ici, tu dois présenter SalesAI sans montrer l'outil en mettant l'accent sur la valeur concrète et les bénéfices pour le client. Explique simplement le fonctionnement avant, pendant et après le rendez-vous, illustre avec des exemples concret (+30 %) et fais le lien avec ses enjeux pour créer envie et curiosité."
+    },
+    {
+      "title": "Cas Pratique",
+      "display_order": 7,
+      "description": "Cette étape vise à **illustrer concrètement l'impact de SalesAI à travers un cas pratique complet.** Tu dois raconter une histoire claire et structurée qui montre comment SalesAI transforme l'organisation commerciale et les performances.\n\n• Présente un cas client concret (ex. RenovPro, ServiceNet).\n• Montre les résultats obtenus : meilleure visibilité, réorganisation managériale, hausse de performance.\n• Appuie-toi sur un parallèle sectoriel ou international (ex. FieldPro aux USA) si pertinent.\n• Conclus sur l'objectif final : aider les équipes à vendre plus grâce à un management outillé et des feedbacks continus.",
+      "short_description": "Ici, tu dois illustrer l'impact de SalesAI avec un cas concret (ex. ServiceNet). Montre les résultats obtenus — meilleure visibilité, manager div par 2, hausse de performance. Conclus sur l'objectif : aider les équipes à vendre plus grâce à un management avec plus de porté."
+    },
+    {
+      "title": "Collecte d'informations clés",
+      "display_order": 8,
+      "description": "Dans cette étape, ton objectif est de **collecter des informations clés pour mieux comprendre le fonctionnement commercial du prospect.** Ces données te permettront d'adapter la démonstration et ta proposition à sa réalité terrain.\n\n• Identifie l'outil CRM utilisé.\n• Demande le nombre moyen de rendez-vous par mois ou par commercial.\n• Évalue le panier moyen.\n• Renseigne-toi sur le ratio manager / commerciaux.",
+      "short_description": "Ici, tu dois collecter les informations clés sur le fonctionnement commercial du prospect : CRM utilisé, volume de rendez-vous, panier moyen et ratio manager/commerciaux. Ces données t'aideront à adapter ta démonstration à sa réalité terrain."
+    },
+    {
+      "title": "Clôture et planification prochain rdv",
+      "display_order": 9,
+      "description": "Cette étape vise à **clôturer efficacement l'échange en proposant une suite claire et engageante.**\n\n• Propose une démonstration du produit, idéalement avec les décisionnaires et si possible en présentiel.\n• Confirme les disponibilités pour le prochain rendez-vous.\n• Valide les prochaines étapes : actions, interlocuteurs à impliquer, documents à partager.",
+      "short_description": "Ici, tu dois clôturer l'échange en proposant une suite claire et engageante. Planifie une démo avec les décisionnaires, confirme les disponibilités et valide les prochaines étapes pour assurer la continuité de la discussion."
+    }
+  ]
+}
