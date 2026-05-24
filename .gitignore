@@ -48,3 +48,6 @@ firestore-debug.log
 
 # Claude Code session state
 .claude/
+
+# Secrets — copy *.example.xcconfig → *.xcconfig and fill in the value
+Secrets.xcconfig
